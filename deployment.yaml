@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modelo-ml
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: modelo-ml
+  template:
+    metadata:
+      labels:
+        app: modelo-ml
+    spec:
+      containers:
+      - name: modelo-ml
+        image: modelo-ml:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
