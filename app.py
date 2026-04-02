@@ -7,7 +7,9 @@ app = Flask(__name__)
 # Cargar modelo
 modelo = joblib.load("modelo_regresion.pkl")
 
-@app.route("/predict", methods=["POST"])
+@app.route("/")
+def home():
+    return "<h1>Modelo ML funcionando en Killercoda 🚀</h1>"
 def predict():
     try:
         data = request.get_json()
